@@ -1,13 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmpy8i2pnqmeq"]
+[gd_scene load_steps=6 format=3 uid="uid://bmpy8i2pnqmeq"]
 
 [ext_resource type="Script" path="res://actors/player/player.gd" id="1_0f24i"]
 [ext_resource type="Texture2D" uid="uid://b5y2s1qq2opuk" path="res://art/prototype/playership.png" id="1_yum6a"]
+[ext_resource type="PackedScene" path="res://actors/player/exhaust_particles.tscn" id="3_j05h7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ald8f"]
 radius = 25.0
 height = 75.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="Curve2D" id="Curve2D_j8wkt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -868.75, -503.75, 0, 0, 0, 0, -868.75, 552.5, 0, 0, 0, 0, 796.25, 555, 0, 0, 0, 0, 801.25, -507.5, 0, 0, 0, 0, -867.5, -507.5)
+}
+point_count = 5
+
+[node name="PlayerShip" type="CharacterBody2D"]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_0f24i")
 
@@ -20,3 +27,16 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ald8f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ExhaustParticles" parent="." instance=ExtResource("3_j05h7")]
+lifetime = 3.0
+angular_velocity_min = -50.0
+angular_velocity_max = 15.0
+
+[node name="SpawnPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_j8wkt")
+
+[node name="Spawner" type="PathFollow2D" parent="SpawnPath"]
+position = Vector2(798.506, 75.636)
+rotation = -1.56609
+progress = 3200.63

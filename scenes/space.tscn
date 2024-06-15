@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://djplt5ocklgnn"]
+[gd_scene load_steps=7 format=3 uid="uid://djplt5ocklgnn"]
 
 [ext_resource type="Texture2D" uid="uid://3d3ufqr1s3rx" path="res://art/background/blue.png" id="1_fwnn1"]
 [ext_resource type="Texture2D" uid="uid://dnfngx1ih7qhw" path="res://art/background/dust.png" id="2_vmoni"]
 [ext_resource type="Texture2D" uid="uid://c2rojnhyxnf0q" path="res://art/background/dust2.png" id="3_a2dpo"]
 [ext_resource type="Texture2D" uid="uid://w81aos0monbb" path="res://art/background/dust3.png" id="4_vpak0"]
 [ext_resource type="PackedScene" uid="uid://bmpy8i2pnqmeq" path="res://actors/player/player.tscn" id="5_jc732"]
+[ext_resource type="PackedScene" uid="uid://bpwumfu13e268" path="res://actors/enemy/enemy.tscn" id="6_rt7gp"]
 
 [node name="Space" type="Node"]
 
@@ -71,5 +72,9 @@ centered = false
 flip_h = true
 flip_v = true
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("5_jc732")]
+[node name="PlayerShip" parent="." instance=ExtResource("5_jc732")]
 position = Vector2(579, 331)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_rt7gp")]
+position = Vector2(1072, 99)
+player = NodePath("../PlayerShip")
