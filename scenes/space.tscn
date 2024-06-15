@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://djplt5ocklgnn"]
+
+[ext_resource type="Texture2D" uid="uid://3d3ufqr1s3rx" path="res://art/background/blue.png" id="1_fwnn1"]
+[ext_resource type="Texture2D" uid="uid://dnfngx1ih7qhw" path="res://art/background/dust.png" id="2_vmoni"]
+[ext_resource type="Texture2D" uid="uid://c2rojnhyxnf0q" path="res://art/background/dust2.png" id="3_a2dpo"]
+[ext_resource type="Texture2D" uid="uid://w81aos0monbb" path="res://art/background/dust3.png" id="4_vpak0"]
+[ext_resource type="PackedScene" uid="uid://bmpy8i2pnqmeq" path="res://actors/player/player.tscn" id="5_jc732"]
+
+[node name="Space" type="Node"]
+
+[node name="Starfield0" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(1152, 648)
+
+[node name="Sprite2D" type="TextureRect" parent="Starfield0"]
+offset_right = 1155.0
+offset_bottom = 655.0
+texture = ExtResource("1_fwnn1")
+stretch_mode = 1
+
+[node name="Starfield1" type="Parallax2D" parent="."]
+repeat_size = Vector2(1152, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="Starfield1"]
+position = Vector2(3, 1.02898e-12)
+scale = Vector2(1, 1.265)
+texture = ExtResource("2_vmoni")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Starfield1"]
+position = Vector2(597, 2)
+scale = Vector2(1, 1.265)
+texture = ExtResource("2_vmoni")
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="Starfield2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+repeat_size = Vector2(1152, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="Starfield2"]
+position = Vector2(3, 1.02898e-12)
+scale = Vector2(1, 1.265)
+texture = ExtResource("3_a2dpo")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Starfield2"]
+position = Vector2(597, 2)
+scale = Vector2(1, 1.265)
+texture = ExtResource("3_a2dpo")
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="Starfield3" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.4, 0.4)
+repeat_size = Vector2(1152, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="Starfield3"]
+position = Vector2(3, 1.02898e-12)
+scale = Vector2(1, 1.265)
+texture = ExtResource("4_vpak0")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Starfield3"]
+position = Vector2(597, 2)
+scale = Vector2(1, 1.265)
+texture = ExtResource("4_vpak0")
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_jc732")]
+position = Vector2(579, 331)
